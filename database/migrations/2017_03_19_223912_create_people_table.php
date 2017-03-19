@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreatePeopleTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. Here will be all the fields from a person.
      *
      * @return void
      */
@@ -18,12 +18,13 @@ class CreatePeopleTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. Laravel, drop this table, please.
      *
      * @return void
      */
