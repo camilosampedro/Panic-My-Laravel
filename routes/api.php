@@ -16,3 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/api/personas/{id?}', ['middleware' => 'auth.basic', function($id = null) {
+  if($id == null) {
+    $people = App\Person::all(array('id', 'email', 'city'));
+  } else {
+    $people = App\Person::find($id, array('id', 'email', 'city'));
+  }
+  return Response::json(array(
+    'error' => false,
+    'people' => $people,
+    'status_code' => 200
+  ));
+}]);
