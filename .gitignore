@@ -41,5 +41,3 @@ Homestead.json
 .rocketeer/
 
 # End of https://www.gitignore.io/api/composer,laravel
-
-.env*
