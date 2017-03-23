@@ -21,7 +21,9 @@ services:
       - "DB_PORT=3306"
       - "DB_HOST=database"
   db:
-    image: mysql:5.7
+    build:
+      context: ./
+      dockerfile: db.docker
     environment:
       - "MYSQL_ROOT_PASSWORD=secret"
       - "MYSQL_DATABASE=panicmylaravel"
