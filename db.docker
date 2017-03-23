@@ -1,0 +1,4 @@
+FROM mysql:5.7
+COPY db.sh /mysql/db.sh
+COPY db.sql /mysql/db.sql
+RUN /mysql/db.sh
