@@ -10,6 +10,6 @@ class Panic extends Model
 
     public function person()
     {
-        return $this->BelongsTo('App\Person');
+        return $this->belongsTo('App\Person');
     }
 }

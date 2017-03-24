@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Panic;
+use App\Person;
+use App\City;
+use App\Http\Requests\PanicRequest;
 
 use Illuminate\Http\Request;
 
@@ -33,12 +36,16 @@ class PanicController extends Controller
       return $panics;
   }
 
-  public static function store($request)
+  public static function store(PanicRequest $request)
   {
       $panic = new Panic($request->all());
-      $city = $panic->city;
-      if ($city->min_latitude > $panic->latitude and $city->max_latitude < $panic->latitude
-          and $city->min_longitude > $panic->longitude and $city->max_longitude < $panic->longitude) {
+      $person = $panic->person;
+      if($person == null){
+        return "Person not found";
+      }
+      $city = $person->city;
+      if ($city->min_latitude < $panic->latitude and $city->max_latitude > $panic->latitude
+          and $city->min_longitude < $panic->longitude and $city->max_longitude > $panic->longitude) {
         $panic->save();
         return $panic;
       } else {

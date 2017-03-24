@@ -16,6 +16,6 @@ class City extends Model
 
     public function people()
     {
-        return $this->HasMany('App\Person');
+        return $this->hasMany('App\Person');
     }
 }
