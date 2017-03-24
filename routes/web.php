@@ -25,3 +25,4 @@ Route::get('/prueba/{n?}', function($n = null) {
 
 Route::resource('/api/v1/cities', 'CityController');
 Route::resource('/api/v1/people', 'PersonController');
+Route::resource('/api/v1/panic', 'PanicController');
