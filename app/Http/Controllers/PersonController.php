@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PersonRequest;
 use App\Person;
 
 class PersonController extends Controller
@@ -33,7 +34,7 @@ class PersonController extends Controller
       return $people;
   }
 
-  public static function store($request)
+  public static function store(PersonRequest $request)
   {
       $person = new Person($request->all());
       $person->save();
