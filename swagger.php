@@ -11,7 +11,7 @@
  *     @SWG\Info(
  *          version="0.1.0",
  *          title="Panic my Laravel",
- *          description="This is a basic API for storing cities and people"
+ *          description="This is a basic API for storing cities and people",
  *          @SWG\Contact(
  *              email="sampedro1903@gmail.com"
  *          )

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PeopleSeeder extends Seeder
+class PanicSeeder extends Seeder
 {
     /**
      * Run the database seeds.

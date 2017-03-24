@@ -22,7 +22,7 @@ class CityController extends Controller
      *          description="Successful operation",
      *          @SWG\Schema(
      *              type="array",
-     *              @SWG\Items(ref="#/definitions/City)
+     *              @SWG\Items(ref="#/definitions/City")
      *          )
      *     )
      * )
@@ -30,11 +30,34 @@ class CityController extends Controller
      */
     public static function index()
     {
-
         $cities = City::all();
         return $cities;
     }
 
+    /**
+     * @SWG\Post(
+     *     path="/api/v1/cities",
+     *     summary="Create a new city",
+     *     description="Create a new city into the database",
+     *     operationId="createCity",
+     *     consumes={"application/json", "application/xml"},
+     *     produces={"application/json", "application/xml"},
+     *     tags={"city"},
+     *     @SWG\Parameter(
+     *          name="city",
+     *          in="body",
+     *          description="City to be added to the database",
+     *          required=true,
+     *          @SWG\Schema(ref="#/definitions/City")
+     *     ),
+     *     @SWG\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @SWG\Schema(@SWG\Items(ref="#/definitions/City"))
+     *     )
+     * )
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public static function store(CityRequest $request)
     {
         $city = new City($request->all());
