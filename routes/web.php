@@ -23,5 +23,5 @@ Route::get('/prueba/{n?}', function($n = null) {
   return $n;
 });
 
-Route::resource('/api/v1/cities/{id?}', 'CityController');
-
+Route::resource('/api/v1/cities', 'CityController');
+Route::resource('/api/v1/people', 'PersonController');
