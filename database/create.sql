@@ -2,16 +2,33 @@ CREATE DATABASE IF NOT EXISTS panicmylaravel;
 
 USE panicmylaravel;
 
+CREATE TABLE IF NOT EXISTS cities(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  min_latitude VARCHAR(100),
+  max_latitude VARCHAR(100),
+  min_longitude VARCHAR(100),
+  max_longitude VARCHAR(100),
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-CREATE TABLE IF NOT EXISTS cities(id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                                                         name VARCHAR(100),
-                                                                              updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                                                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS people(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(300),
+  email VARCHAR(100),
+  city_id INT,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (city_id) REFERENCES cities(id)
+);
 
-
-CREATE TABLE IF NOT EXISTS people(id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                                                         name VARCHAR(300),
-                                                                              email VARCHAR(100),
-                                                                                    city_id INT, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                                                                                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                  FOREIGN KEY (city_id) REFERENCES cities(id));
+CREATE TABLE IF NOT EXISTS panics(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  latitude VARCHAR(100),
+  longitude VARCHAR(100),
+  person_id INT,
+  FOREIGN KEY (person_id) REFERENCES people(id),
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
