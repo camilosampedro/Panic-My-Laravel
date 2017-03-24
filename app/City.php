@@ -12,5 +12,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class City extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'min_latitude', 'max_latitude', 'min_longitude', 'max_longitude'];
 }
