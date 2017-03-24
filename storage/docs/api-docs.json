@@ -76,6 +76,229 @@
                 }
             }
         },
+        "/api/v1/cities/{id}": {
+            "get": {
+                "tags": [
+                    "city"
+                ],
+                "summary": "Find a city",
+                "description": "Looks for the city with that ID into the database",
+                "operationId": "findCity",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the city",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/City"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/panic": {
+            "get": {
+                "tags": [
+                    "panic"
+                ],
+                "summary": "List all the existing panic",
+                "description": "List all the panics stored in the database",
+                "operationId": "listPanics",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Panic"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "panic"
+                ],
+                "summary": "Create a new panic",
+                "description": "Create a new panic into the database",
+                "operationId": "createPanic",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "panic",
+                        "in": "body",
+                        "description": "Panic to be added to the database",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Panic"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Panic"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/panic/{id}": {
+            "get": {
+                "tags": [
+                    "panic"
+                ],
+                "summary": "Find a panic",
+                "description": "Looks for the panic with that ID into the database",
+                "operationId": "findPanic",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the panic",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Panic"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/people": {
+            "get": {
+                "tags": [
+                    "person"
+                ],
+                "summary": "List all the existing people",
+                "description": "List all the people stored in the database",
+                "operationId": "listPeople",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Person"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "person"
+                ],
+                "summary": "Create a new person",
+                "description": "Create a new person into the database",
+                "operationId": "createPerson",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "Person",
+                        "in": "body",
+                        "description": "Person to be added to the database",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Person"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Person"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/people/{id}": {
+            "get": {
+                "tags": [
+                    "person"
+                ],
+                "summary": "Find a person",
+                "description": "Looks for the person with that ID into the database",
+                "operationId": "findPerson",
+                "produces": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the person",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Person"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "api/3rd-party": {
             "get": {
                 "responses": {

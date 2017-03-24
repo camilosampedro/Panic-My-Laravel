@@ -65,6 +65,29 @@ class CityController extends Controller
         return $city;
     }
 
+    /**
+     * @SWG\Get(
+     *     path="/api/v1/cities/{id}",
+     *     summary="Find a city",
+     *     description="Looks for the city with that ID into the database",
+     *     operationId="findCity",
+     *     produces={"application/json", "application/xml"},
+     *     tags={"city"},
+     *     @SWG\Parameter(
+     *          name="id",
+     *          in="path",
+     *          description="Id of the city",
+     *          required=true,
+     *          type="string"
+     *     ),
+     *     @SWG\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @SWG\Schema(@SWG\Items(ref="#/definitions/City"))
+     *     )
+     * )
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public static function show($city)
     {
         return City::find($city);
