@@ -18,7 +18,7 @@ services:
     volumes:
       - ./:/var/www
     environment:
-      - "DB_PORT=3306"
+      - "DB_PORT=33061"
       - "DB_HOST=database"
   db:
     build:
